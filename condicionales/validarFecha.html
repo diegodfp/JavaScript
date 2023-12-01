@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fecha = prompt("ingrese la fecha en formato DD/MM/AAAA")
+
+        let dia = Number((fecha.slice(0,2)))
+        let mes = Number((fecha.slice(3,5)))
+        let año = Number((fecha.slice(6,10)))
+        console.log(dia)
+        console.log(mes)
+        console.log(año)
+        if (dia>31  || dia<0){
+            alert(" dia no valido,fecha no valida")
+        } else if( mes > 12 ||  mes<0){
+            alert("mes no valido,fecha no valida")
+        }else if (año<0 || año > 9999){
+            alert ("año no valido, fecha no valida")
+        }else{
+            alert("fecha correcta")
+        }
+    </script>
+</body>
+</html>

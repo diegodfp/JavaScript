@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Ejercicio</h1>
+    <p id="salidaHtml"></p>
+    <script>
+        let n1 = Number(prompt("ingre el numero 1"))
+        let n2 = Number(prompt("ingrese el numero 2"))
+
+        let salida = `Sean dos numeros: ${n1} y ${n2}\n` + "-".repeat(30) + `\nLa suma es: ${n1+n2}
+La resta es: ${ n1 - n2}
+El producto es: ${n1*n2}
+El cociente es:${n1/n2}\n`+ "-".repeat(30)
+        console.log(salida)
+        alert(salida)
+        salidaHtml.innerHTML =salida
+    </script>
+</body>
+</html>

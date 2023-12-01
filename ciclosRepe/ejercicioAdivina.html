@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        numAdivinar = Math.floor(Math.random()*101)
+        let n = -50;
+                while (numAdivinar != n){
+                    let n = prompt(" ingrese un numero del 1 al 100") 
+                if (numAdivinar >  n){
+                    alert(`el numero es mayor, vuelve a intentarlo el numero era ${numAdivinar}`)
+                }else if(numAdivinar < n){
+                    alert(`el numero es menor, vuelve a intentarlo el numero era ${numAdivinar}`)
+                }else{
+                    alert (` has adivinado felicitaciones, el numero era ${numAdivinar} `)
+                    break
+                }
+            }          
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("ingrese a "))
+        let b = Number(prompt("ingrese b "))
+        let c = Number(prompt("ingrese c "))
+        raiz =  ((b**2)-(4*a*c))**(1/2)
+        if (raiz < 0){
+            mensaje = (" la solucion solo esta en los reales")
+        }else if (a > 0){
+            x1 = ((-(b) + raiz)) / (2*a)
+            x2 = ((-(b) - raiz)) / (2*a)
+            mensaje = ` la solucion x1 es ${x1} y la solucion x2 es ${x2}`
+        } else{
+            mensaje = (" el numero debe ser mayor a 0")
+        }
+        console.log(mensaje)
+    </script>
+</body>
+</html>
