@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRV 02 JS</title>
+</head>
+<body>
+
+  <h2>contador de numeros positivos</h2>
+  <p>Introduce números positivos. Para calcular la media, introduce un número negativo.</p>
+  <ul id="lista">
+
+  </ul>
+  
+  <script>
+    let suma = 0;
+    let contador = 0;
+    let numero;
+
+    do {
+      numero = parseFloat(prompt("Introduce un número positivo (introduce un número negativo para calcular la media):"));
+
+      if (!isNaN(numero) && numero >= 0) {
+        suma += numero;
+        contador++;
+        const listaElement = document.getElementById("lista");
+        listaElement.innerHTML += `<li>${numero}</li>`;
+      }
+    } while (numero >= 0);
+
+    if (contador > 0) {
+      const media = suma / contador;
+
+      const mediaElement = document.createElement("li");
+      mediaElement.textContent = `La media de los números positivos es: ${media.toFixed(2)}`;
+
+      const listaElement = document.getElementById("lista");
+      listaElement.appendChild(mediaElement);
+    } else {
+      alert("No se introdujeron números positivos.");
+    }
+  </script>
+
+</body>
+</html>

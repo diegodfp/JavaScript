@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const sumaDiferencia = function (n1,n2){
+            let resultado = n1 + n2
+            let diferencia = n1 - n2
+            let mensaje = `la suma de los numeros es ${resultado} y su diferencia es ${diferencia}`
+            return mensaje
+        }
+        const restaDivision = function (n1,n2){
+            let producto = n1 * n2
+            let division = n1 / n2
+            let mensaje = `el producto de los numeros es ${producto} y su division es ${division}`
+            return mensaje
+        }
+
+        let n1 = Number(prompt("ingrese el numero"))
+        let n2 = Number(prompt("ingrese el segundo numero"))
+        if (n1 > n2){
+            alert(sumaDiferencia(n1,n2))
+        } else{
+            alert(restaDivision(n1,n2))
+
+        }
+    </script>
+</body>
+</html>

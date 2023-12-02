@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function saltoTriple(n){
+            let nGanadora = ""
+            let mGanadora = 0
+            let msj =""
+            for (i = 0 ; i<n ; i++){
+                let nombre = prompt(` ingrese el nombre del ${i+1} atleta`)
+                let marca = Number(prompt(` ingrese la marca del ${i+1} atleta`))
+                if ( marca > mGanadora){
+                    mGanadora = marca
+                    nGanadora = nombre
+                } 
+                }
+                if (mGanadora > 15.50){
+                    msj = ` la ganadora fue ${nGanadora} y su marca fue ${mGanadora} , felicidades rompio el record`
+                } else{
+                    msj = ` la ganadora fue ${nGanadora} y su marca fue ${mGanadora} , aunque no rompio el record`
+                }
+                
+            return msj
+            }    
+        
+
+        let n = Number(prompt(" ingrese la cantidad de participantes"))
+        alert(saltoTriple(n))
+    </script>
+</body>
+</html>
