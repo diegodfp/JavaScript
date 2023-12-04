@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura de Compra</title>
+</head>
+<body>
+    <script>
+        function calcularTotal(cantidad, precio) {
+            return cantidad * precio;
+        }
+
+        function generarFactura() {
+            let nombreArticulo = prompt("Ingrese el nombre del artículo:");
+            let precioArticulo = Number(prompt("Ingrese el precio del artículo:"));
+            let cantidadComprada = Number(prompt("Ingrese la cantidad que lleva el cliente:"));
+
+            if (isNaN(precioArticulo) || isNaN(cantidadComprada)) {
+                return "Por favor, ingrese valores numéricos válidos.";
+            }
+
+            let totalPagar = calcularTotal(cantidadComprada, precioArticulo);
+
+            let factura = `Factura de Compra\n\n`;
+            factura += `Artículo: ${nombreArticulo}\n`;
+            factura += `Precio por unidad: $${precioArticulo}\n`;
+            factura += `Cantidad comprada: ${cantidadComprada}\n\n`;
+            factura += `Total a pagar: $${totalPagar.toFixed(2)}`;
+
+            return factura;
+        }
+
+        alert(generarFactura());
+    </script>
+</body>
+</html>

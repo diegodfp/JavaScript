@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturar Numeros</title>
+</head>
+<body>
+    <script>
+        function calcularNumeros() {
+            let suma = 0;
+            let cantidadValores = 0;
+            let mayorValor = null;
+            let menorValor = null;
+
+            while (true) {
+                let valor = Number(prompt("Ingrese un valor numérico (ingrese 0 para detener):"));
+
+                if (isNaN(valor)) {
+                    alert("Por favor, ingrese un valor numérico válido.");
+                    continue;
+                }
+
+                if (valor === 0) {
+                    break;
+                }
+
+                suma += valor;
+                cantidadValores++;
+
+                if (mayorValor === null || valor > mayorValor) {
+                    mayorValor = valor;
+                }
+
+                if (menorValor === null || valor < menorValor) {
+                    menorValor = valor;
+                }
+            }
+
+            let promedio = cantidadValores > 0 ? suma / cantidadValores : 0;
+
+            let resultado = `Resultados:\n`;
+            resultado += `Sumatoria de los valores: ${suma}\n`;
+            resultado += `Promedio de los valores: ${promedio.toFixed(2)}\n`;
+            resultado += `Cantidad de valores digitados: ${cantidadValores}\n`;
+            resultado += `Mayor valor: ${mayorValor === null ? "N/A" : mayorValor}\n`;
+            resultado += `Menor valor: ${menorValor === null ? "N/A" : menorValor}`;
+
+            return resultado;
+        }
+
+        alert(calcularNumeros());
+    </script>
+</body>
+</html>
