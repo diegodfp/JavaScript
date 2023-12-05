@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [4.6,2.5,2.5,3.5]
+
+        arr.forEach(function(e){
+            console.log(e)
+        });
+
+        arr.forEach(e => console.log(e));
+        arr.forEach(e => console.log(e *0.8 + 1));
+        ///map()
+        let curv8 = arr.map(e => e * 0.8 + 1)
+        console.log(curv8)
+        //filter
+        let mayor3 = arr.filter(function(e){
+            if (e >= 3)
+            return e
+        })
+        console.log(mayor3)
+        ///reduce
+        let sumatoria = arr.reduce((c,e)=> c + (e * 0.8 +1))
+        console.log(sumatoria)
+    </script>
+
+</body>
+</html>

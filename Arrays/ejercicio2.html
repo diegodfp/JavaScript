@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkInString(cadena,term){
+            let arrayString = cadena.split(' ')
+            for ( const t of arrayString ){
+                if (t === term){
+                    return true
+                }else{
+                    return false
+                }
+       }
+        }
+        let cadena = "Ana lava la tina"
+        let term = "lava"
+        let respuesta = checkInString(cadena,term)
+        console.log(respuesta)
+    </script>
+</body>
+</html>

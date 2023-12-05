@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let campers = ["Hader", "Juan","Carlos", "Yulieth"]
+        let frutas = new Array("Pera","Manzana","Banano","Mandarina")
+        let marcas = new Array(5)
+        ///recorriendo array
+        for(let i=0 ; i < frutas.length;i++){
+            console.log(frutas[i])
+        }
+        /////metodos usados en arrrays
+        /*
+        push() Agrega al final, pop() Elimina el ultimo, shift(), unshift()agrega uno o mas elementos, slice()
+        Concat= newArray = campers.concat(frutas)
+        */
+       console.log(frutas[marcas.length-1])/// ir a la ultima posicion del array
+       //Eliminar una posicion en especifico
+       delete(campers[2])
+       // metodo join --> une los elementos del array en una cadena de texto por un separador especifico
+       let arr = ['apple','banana','orange']
+       let str = arr.join(',');
+       console.log(str)
+       // Metodo INDEXOF devuelve la posicion de un objeto o -1 si no lo encuentra..
+       let arra = ['apple','banana','orange']
+       let index = arr.indexOf('banana')
+       // otra forma de reccorer los arrays
+       let frutas2 = ["pera","manzana","mandarina","banano"]
+        //recorrido por indices
+       for (let i = 0 ; i < frutas.length; i++){
+        console.log(frutas2[i])
+       }
+       //recorrido por elementos
+       for ( const fruta of frutas2 ){
+        console.log(fruta)
+       }
+       //// metodos usados con los arrays
+       /*
+       forEach() --> Ejecuta una funcion para cada elemento del array
+       Map()--> crea un nuevo array con los resultados de llamar a una funcion para cada elemento del array
+       Filter()--> Crea un nuevo array que cumplan con una condicion especifica
+       REduce()---> 
+       */
+    </script>
+</body>
+</html>
