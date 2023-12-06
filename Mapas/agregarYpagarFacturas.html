@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Pagar Facturas</h1>
+    <br>
+    <button onclick="agregarFactura()"> Agregar</button>
+    <button onclick="eliminarFactura()"> Pagar </button>
+    <script>
+        
+    let diccFactura = new Map();
+
+    function addFact(mFac) {
+        let codFactura = prompt("ingrese el codigo de la factura")
+        let valorFactura = Number(prompt("ingrese el codigo de la factura"))
+        mFac.set(codFactura,valorFactura);
+        console.log(diccFactura)
+    }
+    
+    function agregarFactura(){
+        addFact(diccFactura)
+    }
+
+    function eliminarFactura(){
+        delFact(diccFactura)
+    }
+    function delFact(mFac) {
+        let codFactura = prompt("ingrese el codigo de la factura, que quiere eliminar")
+        if(mFac.has(codFactura)){
+                mFac.delete(codFactura)
+            }else{
+                alert(" el codigo de la factura esta mal")
+            }
+        console.log(mFac)
+    }
+
+
+
+    </script>
+</body>
+</html>

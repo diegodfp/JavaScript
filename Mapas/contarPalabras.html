@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table> 
+
+    </table>
+    <script>
+        let texto="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, possimus! sit amet consectetur lorem Lorem lorem"
+        let palabras = texto.split(" ");
+        let palabrasEnMinuscula = [];
+
+        for (let i = 0; i < palabras.length; i++) {
+            palabrasEnMinuscula.push(palabras[i].toLowerCase());
+        }
+
+        console.log(palabras);
+        let mapa = new Map();
+        for (const palabra of palabrasEnMinuscula) {
+            if(mapa.has(palabra)){
+                mapa.set(palabra,mapa.get(palabra)+1);
+            }else{
+                mapa.set(palabra,1);
+            }
+        }
+        console.log(mapa);
+    </script>
+</body>
+</html>
