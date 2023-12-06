@@ -6,40 +6,69 @@
     <title>Document</title>
 </head>
 <body>
+
     <h1> Pagar Facturas</h1>
     <br>
-    <button onclick="agregarFactura()"> Agregar</button>
-    <button onclick="eliminarFactura()"> Pagar </button>
+    <button onclick="agregarFactura()">Agregar</button>
+    <button onclick="eliminarFactura()">Pagar</button>
+
+    <p>Total de facturas agregadas: <span id="totalFacturas">0</span></p>
+    <p>Total de facturas pagadas: <span id="facturasPagadas">0</span></p>
+    <p>Total de facturas pendientes: <span id="facturasPendientes">0</span></p>
+
+    <ul id="listaFacturas"></ul>
+
     <script>
-        
-    let diccFactura = new Map();
+        let diccFactura = new Map();
+        let totalFacturasPagadas = 0;
 
-    function addFact(mFac) {
-        let codFactura = prompt("ingrese el codigo de la factura")
-        let valorFactura = Number(prompt("ingrese el codigo de la factura"))
-        mFac.set(codFactura,valorFactura);
-        console.log(diccFactura)
-    }
-    
-    function agregarFactura(){
-        addFact(diccFactura)
-    }
+        function actualizarContadores() {
+            const totalFacturas = totalFacturasPagadas + diccFactura.size;
+            const facturasPendientes = diccFactura.size;
 
-    function eliminarFactura(){
-        delFact(diccFactura)
-    }
-    function delFact(mFac) {
-        let codFactura = prompt("ingrese el codigo de la factura, que quiere eliminar")
-        if(mFac.has(codFactura)){
-                mFac.delete(codFactura)
-            }else{
-                alert(" el codigo de la factura esta mal")
+            document.getElementById('totalFacturas').textContent = totalFacturas;
+            document.getElementById('facturasPagadas').textContent = totalFacturasPagadas;
+            document.getElementById('facturasPendientes').textContent = facturasPendientes;
+        }
+
+        function addFact(mFac) {
+            let codFactura = prompt("Ingrese el código de la factura");
+            let valorFactura = prompt("Ingrese el valor de la factura");
+            mFac.set(codFactura, valorFactura);
+            actualizarContadores();
+            actualizarListaFacturas();
+        }
+
+        function agregarFactura() {
+            addFact(diccFactura);
+        }
+
+        function delFact(mFac) {
+            let codFactura = prompt("Ingrese el código de la factura que desea eliminar");
+            if (mFac.has(codFactura)) {
+                mFac.delete(codFactura);
+                totalFacturasPagadas++;
+                actualizarContadores();
+                actualizarListaFacturas();
+            } else {
+                alert("El código de la factura es incorrecto");
             }
-        console.log(mFac)
-    }
+        }
 
+        function eliminarFactura() {
+            delFact(diccFactura);
+        }
 
+        function actualizarListaFacturas() {
+            const listaFacturasElement = document.getElementById('listaFacturas');
+            let listaHTML = '';
 
+            diccFactura.forEach((valor, codigo) => {
+                listaHTML += `<li>Código: ${codigo}, Valor: ${valor}</li>`;
+            });
+
+            listaFacturasElement.innerHTML = listaHTML;
+        }
     </script>
 </body>
 </html>
