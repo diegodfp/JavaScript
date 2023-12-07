@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRÉSTAMO CON INTERÉS SIMPLE</title>
+</head>
+<body>
+    <h1>
+        GENERADOR DE TABLA DE AMORTIZACIÓN
+        PRÉSTAMO CON INTERÉS SIMPLE update
+    </h1>
+    <h2> Presione el boton para calcular</h2><br><br>
+    <p>Monto del credito: <span id="montoCredito">0</span></p>
+    <p>Tasa de interes (anual): <span id="interes">0</span></p>
+    <p>Numero de pagos Mensuales: <span id="cuotas">0</span></p>
+    <p>Valor total: <span id="total">0</span></p>
+    <p>Valor Mensual: <span id="cuotaMensual">0</span></p>
+    <button onclick="calcular()">calcular</button>
+    <br><br>
+    <table id="tabla" border="1">
+        <thead>
+            <th>
+                mes
+            </th>
+            <th>
+                valor
+            </th>
+            <th>
+                Valor total
+            </th>
+            <th>
+                Capital
+            </th>
+            <th>
+                Interes
+            </th>
+            <th>
+                Total
+            </th>
+         </thead>    
+
+    </table>
+    <script>
+
+        function calcular(){
+            let monto = Number(prompt(" Ingrese el monto del credito "))
+            let interes = Number(prompt(" Ingrese el interes anual del credito "))
+            interes = interes / 100 
+            let cuotas = Number(prompt(" Ingrese el numero de cuotas "))
+            let total = 0
+            let cuotaMensual = 0
+            let vCapital = 0
+            let vInteres = 0
+            vCapital = monto / cuotas
+            vInteres = vCapital * interes
+            cuotaMensual =(vCapital+vInteres)
+            total =  cuotaMensual * cuotas
+            document.getElementById('montoCredito').textContent = monto;
+            document.getElementById('interes').textContent = interes*100;
+            document.getElementById('cuotas').textContent = cuotas;
+            document.getElementById('total').textContent = total;
+            document.getElementById('cuotaMensual').textContent = cuotaMensual;
+            let listaHTML = '';
+            for(let i = 0 ; i<cuotas; i++){
+                const litarCuotas = document.getElementById('tabla');
+                
+                listaHTML = `<tr><td>${i+1}</td><td>$ ${monto-(i*vCapital)}</td><td>$ ${total-(i*cuotaMensual)}</td><td>$ ${vCapital}</td><td>$ ${vInteres}</td><td>$ ${cuotaMensual}</td></tr>`;
+                litarCuotas.innerHTML += listaHTML;            
+            }
+            let final = '';
+            const footer = document.getElementById('tabla');
+            final =`<tr> <td></td> <td></td> <td></td> <td>$ ${vCapital*cuotas}</td>  <td>$ ${vInteres*cuotas}</td>  <td>$ ${cuotaMensual*cuotas}</td></tr>`
+            footer.innerHTML += final;
+        }
+    </script>
+</body>
+</html>
