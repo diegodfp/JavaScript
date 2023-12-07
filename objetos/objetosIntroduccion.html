@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const persona = {
+            nombre: 'Dani',
+            edad: 30,
+            esTrabajador: true,
+            familia: ["Miguel", "Maria"],
+            direccion: {
+                calle:"Calle de los estudiantes",
+                numero: 13,
+                ciudad: "Bucaramanga"
+            },
+            caminar: function(){
+                console.log("estoy caminando")
+            }
+        }
+        console.log(persona)
+        console.log(persona.nombre)
+        persona.caminar();
+        persona.nombre = "Daniela"
+
+        const cadenaJSON = JSON.stringify(persona)
+        console.log(cadenaJSON)
+
+        const objPer = JSON.parse(cadenaJSON)
+        console.log(objPer)
+    </script>
+
+</body>
+</html>
