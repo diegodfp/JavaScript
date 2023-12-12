@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ruidosa(funcion){
+            return (...argumentos)=> {
+                console.log("llamando con", argumentos);
+                let resultado = funcion(...argumentos);
+                console.log("llamada con ", argumentos, ", retorno", resultado);
+                return resultado;
+            };
+        }
+        ruidosa(Math.min)(3,2,1);
+    </script>
+</body>
+</html>
