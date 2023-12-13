@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validarCorreoElectronico(correo) {
+        try {
+            let partes = correo.split('@');
+
+            if (partes.length !== 2) {
+            throw new Error("El correo electrónico no cumple con el formato esperado.");
+            }
+
+            let dominio = partes[1].split('.');
+            
+            if (dominio.length < 2) {
+            throw new Error("El correo electrónico no cumple con el formato esperado.");
+            }
+
+            console.log("El correo electrónico es válido.");
+        } catch (error) {
+            console.error(error.message);
+        } finally {
+            console.log("Validación completa.");
+        }
+        }
+
+        let correoIngresado = prompt("Ingrese su correo electrónico:");
+        validarCorreoElectronico(correoIngresado);
+
+    </script>
+</body>
+</html>

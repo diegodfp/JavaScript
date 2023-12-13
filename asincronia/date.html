@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ahora = new Date()
+
+        const radomdate = new Date()
+
+        /// obteniendo valors
+        console.log(ahora.getFullYear())
+        /// convirtiendo a cadena
+        console.log(ahora.toDateString())
+
+        // comparar fechas
+        console.log(ahora.getTime())
+
+        const now = new Date()
+        const before = new Date('October 8 2019 16:30:30')
+        const diff =  now.getTime() - before.getTime()
+        console.log(diff)
+        // Dias transcurrido
+
+    </script>
+</body>
+</html>

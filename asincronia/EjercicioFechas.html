@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //// LIBRERIA DATE-FNS AVERIGUAR
+        let diaPactado = prompt("ingrese el dia de la fecha pactada")
+        let diaReal = prompt("ingrese el dia de la fecha entrega")
+        let mesPactado = prompt("ingrese el mes de la fecha pactada")
+        let mesReal = prompt("ingrese el mes de la fecha entrega")
+        let añoPactado = prompt("ingrese el año de la fecha pactada")
+        let añoReal = prompt("ingrese el año de la fecha entrega")
+        const pactado = new Date(`${ mesPactado } ${ diaPactado } ${ añoPactado }`)
+        const real = new Date(`${ mesReal } ${ diaReal } ${ añoReal }`)
+        console.log(pactado)
+        console.log(real)
+        function calcular(pactado,real) {
+            const diff =  real.getTime() - pactado.getTime()
+            let dias = diff/86400000
+            console.log(dias)
+            let multa = 0
+            let mensaje =''
+            if (dias<=3 && dias >=1){
+                multa = 7000 * dias
+                mensaje = ` han pasado ${dias} dias la multa es de ${multa} pesos`
+            }else if(dias>=4){
+                multa = 10000 
+                mensaje = ` han pasado ${dias} dias la multa es de ${multa} pesos y tiene una penalizacion de 6 meses`
+            } else{
+                mensaje = "no debe nada tranquilo"
+            }
+            return mensaje
+        }
+        let mensaje = calcular(pactado,real)
+        console.log(mensaje)
+    </script>
+</body>
+
+</html>
