@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const datos= [
+            {
+                id: 1,
+                title: "iron man",
+                year: 2008
+            },
+            {
+                id:2,
+                title:"Spiderman: Homecoming",
+                year:2017
+            },
+            {
+                id:3,
+                title:"Avenger: Engame",
+                year:2019
+            }
+        ];
+        const getDatos = ()=>{
+            return new Promise((resolve, reject)=>{
+                if (datos.length===0){
+                    reject(new Error("Error. no existen datos. "))
+                }
+                setTimeout(()=>{
+                    resolve(datos);
+                },1500)
+            }) }
+            
+        
+            /// Async Await
+        async function obtenerDatos(){
+            try{
+                const datosObtenidos = await getDatos()
+                console.table(datosObtenidos)
+            } catch (error){
+                console.error(error.mensaje)
+            }
+            
+        }
+        obtenerDatos();
+    </script>
+</body>
+</html>

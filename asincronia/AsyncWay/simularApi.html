@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getNombre(nomusu){
+            const url= ` https://api.github.com/users/${nomusu}`;
+
+            // fetch en una promesa
+            fetch(url)
+                .then(respuesta =>  respuesta.json())
+                .then(json=>{
+                    console.log(json);
+                })
+        }
+        getNombre("diegodfp")
+
+
+        /// con asyn await
+        async function  getNombre(nomusu){
+            const url= ` https://api.github.com/users/${nomusu}`;
+            const respuesta = await fetch(url);
+            if (respuesta.status != 200)
+                throw new Error("Error.No existe el nombre de usuario en gitHub")
+            const json = await respuesta.json();
+            console.log(json.name)
+            /// retorna el nombre de usuario
+            return json.name
+        }
+
+        /// pokemons
+
+        
+    </script>
+</body>
+</html>

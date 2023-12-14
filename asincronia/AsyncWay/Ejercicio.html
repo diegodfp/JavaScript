@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const doTask = (iterations) => {
+            return new Promise((resolve, reject) => {
+                const numbers = [];
+                for (let i = 0; i < iterations; i++) {
+                    const number = 1 + Math.floor(Math.random() * 6);
+                    numbers.push(number);
+                    if (number === 6) {
+                        reject(new Error(`ha sacado un numero 6 en la iteracion ${i + 1} y los numeros tirados son ${numbers}`))
+                    }
+                }
+                resolve(numbers);
+            })
+        }
+
+        async function ejecutar(iterations) {
+            try {
+                const loqueRecibe = await doTask(iterations)
+                console.log(loqueRecibe)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        ejecutar(5)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            async function  getPokemon(id){
+            const url= `https://pokeapi.co/api/v2/pokemon/${id}`;
+            const respuesta = await fetch(url);
+            if (!respuesta.ok)
+                throw new Error("Error. pokemon no existe")
+            const json = await respuesta.json();
+            return json
+            /// retorna el nombre de usuario
+            
+        }
+        (async function(){
+            try {
+                for (let i=1 ; i<101 ; i++){
+                    let jsonPokemon = await getPokemon(i);
+                    console.log(jsonPokemon.name);
+                    urlImg = await getNombre('limber');
+                    console.log(urlImg)
+                }
+                
+
+            }catch(error){
+                console.error(error.message)
+            }
+        })()
+    </script>
+</body>
+</html>
