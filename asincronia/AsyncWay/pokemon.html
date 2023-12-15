@@ -13,7 +13,7 @@
             if (!respuesta.ok)
                 throw new Error("Error. pokemon no existe")
             const json = await respuesta.json();
-            return json.sprites.front_default
+            return json
             /// retorna el nombre de usuario
             
         }

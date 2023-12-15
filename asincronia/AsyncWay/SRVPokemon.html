@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Grid</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
+
+        h2 {
+            grid-row: 1;
+            grid-column: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        .box {
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        button {
+            grid-row: 3;
+            grid-column: 1;
+            display: inline-block;
+            /* Cambiado a "inline-block" para no ocupar todo el ancho */
+            margin: auto;
+            /* Centrar horizontalmente */
+            padding: 10px;
+            /* Ajustar el padding según sea necesario */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Listado de pokemones</h2>
+
+    <div class="container">
+        <div class="box" id="box1">
+            
+        </div>
+        
+        <div class="box" id="box2">
+            
+        </div>
+        
+    </div>
+
+
+    <button onclick="imprimir()">Siguiente</button>
+
+    <script>
+        async function getImagen(nompoke) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+            const respuesta = await fetch(url);
+            if (!respuesta.ok)
+                throw new Error("Error. pokemon no existe")
+            const json = await respuesta.json();
+            return json.sprites.front_default
+            /// retorna el nombre de usuario
+
+        }
+        async function getNombre(nompoke) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+            const respuesta = await fetch(url);
+            if (!respuesta.ok)
+                throw new Error("Error. pokemon no existe")
+            const json = await respuesta.json();
+            return json.name
+            /// retorna el nombre de usuario
+
+        }
+        
+
+        // funcion que se auto ejecuta
+        (async function imprimir() {
+            const number = 1 + Math.floor(Math.random() * 1000);
+            const number2 = 1 + Math.floor(Math.random() * 1000);
+            if (number != number2) {
+                try {
+                    let urlImg = await getImagen(number);
+                    let urlImg2 = await getImagen(number2);
+                    let nombre1 = await getNombre(number);
+                    let nombre2 = await getNombre(number2);
+                    agregarImagen(urlImg,urlImg2,number,number2,nombre1,nombre2)
+                    agregarNombre()
+                } catch (error) {
+                    console.error(error.message)
+                }
+            }
+
+        })()
+
+        function agregarImagen(url1,url2,number,number2,nombre1,nombre2) {
+            const box1 = document.getElementById('box1');
+            const box2 = document.getElementById('box2');
+
+            box1.innerHTML = `<img src="${url1}" alt="Imagen 1">`;
+            box2.innerHTML = `<img src="${url2}" alt="Imagen 1">`;
+            box1.innerHTML += `<h2> ${number} ${nombre1} </h2>`;
+            box2.innerHTML += `<h2> ${number} ${nombre1} </h2>`;
+        }
+        
+      
+    </script>
+</body>
+
+</html>
