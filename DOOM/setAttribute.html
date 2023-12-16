@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a id="miEnlace" href="<https://ejemplo.com>" target="_blank"> Enlace de Ejemplo</a>
+    <button onclick="prueba()"> probar</button>
+
+    <script>
+        function prueba() {
+            //seleccionar elemento
+            const enlace = document.getElementById('miEnlace')
+            // obetener el valor del atributo 'href'
+            enlace.setAttribute('href','https://nuevodominio.com')
+        }
+
+    </script>
+</body>
+
+</html>

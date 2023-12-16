@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="miElemento"> Contenido del elemento </div>
+    <button onclick="probar()"> agregar atributo</button>
+    <button onclick="eliminarAtributo()"> quitar atributo</button>
+
+    <script>
+        function probar() {
+            // seleccionar elemento
+            const miElemento = document.getElementById('miElemento')
+
+            // agregar o eleminar el atributo 'data-info' basado en su existencia actual
+            miElemento.toggleAttribute('data-info');
+
+            /// mostrar en la consola si el atributo 'data-info' esta presente despues de la operacion
+            console.log('¿ data - info esta presente?', miElemento.hasAttribute('data-info'))
+
+
+            
+        }
+        // /// Eliminar atributo con  Remove
+        function eliminarAtributo()  {
+            const miElemento = document.getElementById('miElemento')
+            miElemento.removeAttribute('data-info')
+            console.log('¿ data - info esta presente?', miElemento.hasAttribute('data-info'))
+        }  
+        </script>
+
+        
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="miElemento" class="resaltado" data-info="informacionAdicional"></div>
+    <script>
+        // seleccionar elemento
+        const miElemento = document.getElementById('miElemento')
+        // obtener nombres de todos los atributos
+
+        const nombresDeAtributos = miElemento.getAttributeNames();
+
+        console.table(nombresDeAtributos)
+    </script>
+</body>
+</html>
