@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            height: auto;
+            width: 400px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form name="calculadora" onsubmit="convertidor(); return false;">
+            <label for="numero1">Euros </label>
+            <input type="text" id="dolar" /> <br> <br>
+            <input type="submit" value="Convertir" class="submit-btn" />
+            <hr size="1px" color="black" />
+            <label>Dolar</label>: <input type="text" id="resultado" readonly></p>
+        </form>
+        </div>
+    <script>
+        async function convertidor() {
+            let dolar = parseFloat(document.getElementById('dolar').value)
+            const url = `https://cdn.dinero.today/api/boa.json`;
+            const respuesta = await fetch(url);
+            if (!respuesta.ok)
+                throw new Error("Error. tasa incorrecta")
+            const json = await respuesta.json();
+            let euro =  parseFloat(json.rates.EUR)
+            convertido =  dolar/euro
+            console.log(convertido)
+            document.getElementById('resultado').value = convertido.toFixed(2) 
+        }
+        
+    </script>
+</body>
+</html>  
