@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 2px black solid;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <div class="container" id="container"> 
+            <div class="parent"> 
+                <p> Hola a todos.</p>
+                <p class="message"> Hola, soy todo un camper</p>
+            </div>
+        </div>
+        <button id="" onclick="insertarAdjacentElement()"> Insertar Parrafo Antes</button> <br>
+        <button id="" onclick="insertarAfterElement()"> Insertar Parrafo Antes</button> <br><br>
+        <button id="" onclick="insertAdjHTML()"> Insertar insertAdjHTML</button>
+
+        <button id="" onclick="insertAdjText()"> Insertar insertAdjText</button>
+
+        <script>
+            function insertarAdjacentElement(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:red;'> Este es el contenido insertado</span>"
+            div.insertAdjacentElement("beforebegin",p)
+        }
+        function insertarAfterElement(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:red;'> Este es el contenido insertado</span>"
+            // beforebegin, afterbegin, beforeend, afterend
+            div.insertAdjacentElement("afterend",p)
+        }
+        function insertAdjHTML(){
+            const div = document.querySelector('div');
+            const str = "<p><span style='color:red;'> Este es el contenido insertado</span></p>"
+            div.insertAdjacentHTML("afterend",str)
+        }
+        function insertAdjText(){
+            const div = document.querySelector('div');
+            const str = "<p><span style='color:red;'> Este es el contenido insertado</span></p>"
+            div.insertAdjacentText("afterbegin",str)
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ordenar Nombres</title>
+    <style>
+        #container{
+            height: auto;
+            width: 500px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 20px;
+        }
+        textarea{
+            color:  gray;
+            width:  50%;
+            height: 200px;
+
+        }
+        button{
+            background-color: rgb(70, 70, 228);
+            color: white;
+            padding: 10px;
+            margin: 0px;
+        }
+        form #mostrarComentario{
+            width: 100%;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form name="pedidoCajas" >
+            <label for="nombre"> Nombre del cliente: </label><br>
+            <input type="text" id="nombre" /> <br>
+            <label for="nombre"> Material de la caja</label><br>
+            <select name="materiales" id="materiales">
+                <option value="plastico">Plástico</option>
+                <option value="carton">Cartón</option>
+                <option value="papel">Papel</option>
+                <option value="madera">Madera</option>
+            </select><br><br>
+            <label for="nombre"> Seleccione unas dimensiones para las cajas</label><br><br>
+            <input type="radio" name="rBtn" id="opc1" class="radiusBtn" value="Diminutas">  Diminutas <br>
+            <input type="radio" name="rBtn" id="opc2" class="radiusBtn" value="Medianas"> Medianas <br>
+            <input type="radio" name="rBtn" id="opc3" class="radiusBtn" value="Grandes"> Grandes <br>
+
+            <h4> comentarios</h4>
+            <hr size="1px" color="black" />
+            <textarea id="comentarios" rows="5" cols="30" > Deja un comentario</textarea> <br>
+            <button type="button" onclick="enviar()">Enviar</button>
+            <br>
+            <br>
+            <input type="text" id="mostrarComentario"> <br>
+        </form>
+    </div>
+    
+    <script>
+
+    
+        function enviar() {
+            let nombre = document.getElementById('nombre').value;
+            let material = document.getElementById('materiales').value
+            let dimension = document.querySelector('[name=rBtn]:checked').value;
+            let comentario = document.getElementById('comentarios').value
+            console.log(nombre, material,dimension,comentario)
+            document.getElementById('mostrarComentario').value = `${nombre} ha pedido una caja de ${material} con unas dimensiones ${dimension}. ${comentario} `
+        }
+    
+       
+    
+    </script>
+    
+        
+
+</body>
+</html>  
+</body>
+</html>

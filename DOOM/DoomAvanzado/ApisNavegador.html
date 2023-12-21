@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"> 
+        <div class="parent"> 
+            <p> Hola a todos.</p>
+            <p class="message"> Hola, soy todo un camper</p>
+        </div>
+    </div>
+    <button id="" onclick="insertarElement()"> Insertar Parrafo Antes</button>
+    <button id="" onclick="afterElement()"> Insertar Parrafo despues </button>
+    <button id="" onclick="dentroContenedor()"> Insertar Parrafo dentroContenedor </button>
+
+    <button id="" onclick="dentroContenedorAlFinal()"> dentro contenedor al final </button>
+
+    <button id="" onclick="replaceChild()"> reemplaza el contenido del div </button>
+
+    <button id="" onclick="replaceWithParrafo()"> reemplazar Todo el div</button>
+
+    <button id="" onclick="removeElement()"> reemover Todo el div</button>
+
+
+    <script>
+        function insertarElement(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:red;'> Este es el contenido insertado</span>"
+            div.before(p)
+        }
+
+        function afterElement(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:blue;'> Este es el contenido insertado</span>"
+            div.after(p)
+        }
+
+        function dentroContenedor(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:green;'> Este es el contenido insertado</span>"
+            div.prepend(p)
+        }
+        function dentroContenedorAlFinal(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:tomato;'> Este es el contenido insertado</span>"
+            div.append(p)
+        }
+
+        
+        
+
+        function replaceChild(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:rebeccapurple;'> Este es el contenido insertado</span>"
+            div.replaceChildren(p)
+        }
+
+
+        function replaceWithParrafo(){
+            const div = document.querySelector('div');
+            const p = document.createElement('p');
+            p.innerHTML = "<span style='color:grey;'> Este es el contenido insertado</span>"
+            div.replaceWith(p)
+        }
+
+
+
+        function removeElement(){
+            const div = document.querySelector('div');
+            div.remove()
+        }
+    </script>
+</body>
+</html>

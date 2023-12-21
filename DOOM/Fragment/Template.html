@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Uso de Template</h1>
+    <template id="miTemplate">
+        <div class="card">
+            <h2> Titulo</h2>
+        </div>
+    </template>
+
+    <hr>
+    <button onclick="addTemplate()">Agregar un template</button>
+    <script>
+        function addTemplate(){
+            const miTemplate = document.getElementById('miTemplate')
+
+            const clon = miTemplate.content.cloneNode(true);
+
+            document.body.appendChild(clon)
+        }
+    </script>
+</body>
+</html>
