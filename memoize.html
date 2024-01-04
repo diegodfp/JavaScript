@@ -10,32 +10,89 @@
 <body>
     <script>
         let fnName = "sum"
+        let fnName2 = "factorial"
+        let fnName3 = "fib"
         let actions = ["call", "call", "getCallCount", "call", "getCallCount"]
+        let actions2 = ["call", "call", "call", "getCallCount", "call", "getCallCount"]
+        let actions3 = ["call", "getCallCount"]
         let values = [[2, 2], [2, 2], [], [1, 2], []]
+        let values2 = [[2], [3], [2], [], [3], []]
+        let values3 = [[5], []]
 
+        function factorialRecursivo(n) {
+            if (n == 0) {
+                return 1;
+            }
+            return n * factorialRecursivo(n - 1);
+        }
 
-        function memoize(actions, values) {
+        function fibonacci(n) {
+            if (n == 0) {
+                return 1;
+            }
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        function memoize(fnName, actions, values) {
             let array = []
             let contador = 0
             let arrayUsados = []
-            for (let i = 0; i < actions.length; i++) {
-                if (actions[i] == "call") {
-                    array.push(values[i][0] + values[i][1])
-                    if (arrayUsados.findIndex(arr => JSON.stringify(arr) === JSON.stringify([values[i][0], values[i][1]])) === -1) {
-                        arrayUsados.push([values[i][0], values[i][1]]);
-                        contador++;
+            if (fnName === "sum") {
+                for (let i = 0; i < actions.length; i++) {
+                    if (actions[i] == "call") {
+                        array.push(values[i][0] + values[i][1])
+                        if (arrayUsados.findIndex(arr => JSON.stringify(arr) === JSON.stringify([values[i][0], values[i][1]])) === -1) {
+                            arrayUsados.push([values[i][0], values[i][1]]);
+                            contador++;
+                        }
+
+
+                    } else if (actions[i] == "getCallCount") {
+                        array.push(contador)
                     }
-
-
-                } else if (actions[i] == "getCallCount") {
-                    array.push(contador)
                 }
-            }
-            console.log(array)
-            console.log(arrayUsados)
-        }
+                console.log(array)
+                console.log(arrayUsados)
+            } else if (fnName === "factorial") {
+                for (let i = 0; i < actions.length; i++) {
+                    if (actions[i] == "call") {
+                        let factorial = factorialRecursivo(values[i])
+                        array.push(factorial)
+                        if (arrayUsados.findIndex(arr => JSON.stringify(arr) === JSON.stringify([values[i][0]])) === -1) {
+                            arrayUsados.push([values[i][0]]);
+                            contador++;
+                        }
 
-        memoize(actions, values)
+
+                    } else if (actions[i] == "getCallCount") {
+                        array.push(contador)
+                    }
+                }
+                console.log(array)
+                console.log(arrayUsados)
+
+            } else if (fnName = "fib") {
+                for (let i = 0; i < actions.length; i++) {
+                    if (actions[i] == "call") {
+                        let fibonacci = fibonacci(values[i])
+                        array.push(fibonacci)
+                        if (arrayUsados.findIndex(arr => JSON.stringify(arr) === JSON.stringify([values[i][0]])) === -1) {
+                            arrayUsados.push([values[i][0]]);
+                            contador++;
+                        }
+
+
+                    } else if (actions[i] == "getCallCount") {
+                        array.push(contador)
+                    }
+                }
+                console.log(array)
+                console.log(arrayUsados)
+            }
+        }
+        memoize(fnName, actions, values)
+        memoize(fnName2, actions2, values2)
+        memoize(fnName3, actions3, values3)
     </script>
 </body>
 
