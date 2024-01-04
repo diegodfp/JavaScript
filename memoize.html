@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fnName = "sum"
+        let actions = ["call", "call", "getCallCount", "call", "getCallCount"]
+        let values = [[2, 2], [2, 2], [], [1, 2], []]
+
+
+        function memoize(actions, values) {
+            let array = []
+            let contador = 0
+            let arrayUsados = []
+            for (let i = 0; i < actions.length; i++) {
+                if (actions[i] == "call") {
+                    array.push(values[i][0] + values[i][1])
+                    if (arrayUsados.findIndex(arr => JSON.stringify(arr) === JSON.stringify([values[i][0], values[i][1]])) === -1) {
+                        arrayUsados.push([values[i][0], values[i][1]]);
+                        contador++;
+                    }
+
+
+                } else if (actions[i] == "getCallCount") {
+                    array.push(contador)
+                }
+            }
+            console.log(array)
+            console.log(arrayUsados)
+        }
+
+        memoize(actions, values)
+    </script>
+</body>
+
+</html>
