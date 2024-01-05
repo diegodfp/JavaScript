@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #main{
+            text-align: center;
+        }
+        div{
+            width: 500px;
+            background-color: rgb(255, 183, 0);
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #aumen{
+            border-radius: 15%;
+            background-color:cornflowerblue;
+            
+        }
+        #dis{
+            border-radius: 15%;
+            background-color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main">
+        <div>
+            <p> Contador</p>
+    
+            <button id="aumen"> Aumentar</button> <button id="dis"> Disminuir</button>
+    
+            <p> contador <span id="contador"> 0</span></p>
+        </div>
+    
+    </main>
+    
+
+
+    <script>
+        let contador = 0
+        function aumentar() {
+            let span = document.getElementById("contador")
+            contador++
+            span.textContent = contador
+            console.log(contador)
+        }
+        function disminuir() {
+            let span = document.getElementById("contador")
+            contador--
+            span.textContent = contador
+            console.log(contador)
+        }
+        document.getElementById("aumen").addEventListener("click", aumentar)
+        document.getElementById("dis").addEventListener("click", disminuir)
+    </script>
+</body>
+
+</html>
