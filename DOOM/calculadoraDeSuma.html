@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grados Farenheit</title>
+    <style>
+        #container{
+            height: auto;
+            width: 400px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    a
+    <div id="container">
+    <form name="calculadora" onsubmit="sumarNumeros(); return false;">
+        <label for="numero1">Numero1 </label>
+        <input type="text" id="numero1" /> <br> <br>
+        <label for="numero2">Numero2 </label>
+        <input type="text" id="numero2" />
+        <input type="submit" value="+" class="submit-btn" />
+        <hr size="1px" color="black" />
+        <label>Resultado</label>: <input type="text" id="resultado" readonly></p>
+    </form>
+    </div>
+    <script>
+        function sumarNumeros() {
+            // Obtén los valores de los input
+            let resultado = 0
+            var numero1 = parseFloat(document.getElementById('numero1').value);
+            if (isNaN(numero1)){
+                numero1 = 0
+            }
+            var numero2 = parseFloat(document.getElementById('numero2').value);
+            if (isNaN(numero2)){
+                numero2 = 0
+            }
+            console.log(numero1,numero2)
+            resultado = numero1 + numero2;
+
+
+            // Muestra el resultado en el input de resultado
+            document.getElementById('resultado').value = resultado;
+        }
+    </script>
+
+</body>
+</html>

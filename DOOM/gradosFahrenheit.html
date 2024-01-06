@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        #container{
+            height: auto;
+            width: 400px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <form name="calculadora" onsubmit="sumarNumeros(); return false;">
+        <label for="numero1">Grados Centigrados </label>
+        <input type="text" id="numero1" /> <br> <br>
+
+        <label>Grados Farenheit</label>: <input type="text" id="resultado"> <br>
+        <input type="submit" value="Calcular" class="submit-btn" />
+        <input type="submit" value=" calcular 2" class="submit-btn" onclick="calcularCentigrados()">
+    </form>
+    </div>
+    <script>
+        function sumarNumeros() {
+            // Obtén los valores de los input
+            let resultado = 0
+            let numero1 = parseFloat(document.getElementById('numero1').value);
+            resultado = (numero1 * 9/5)  + 32;
+
+
+            // Muestra el resultado en el input de resultado
+            document.getElementById('resultado').value = resultado;
+        }
+        function calcularCentigrados() {
+            // Obtén los valores de los input
+            let resultado = 0
+            let numero1 = parseFloat(document.getElementById('resultado').value);
+            resultado = (numero1 - 32)*5/9;
+            console.log(resultado)
+
+            // Muestra el resultado en el input de resultado
+            document.getElementById('numero1').value = resultado;
+        }
+    </script>
+
+</body>
+</html>

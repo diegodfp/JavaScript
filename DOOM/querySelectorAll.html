@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+A
+<body>
+    <p  class="resaltado"> Este es el primer parrafo</p>
+    <p class="resaltado">  Este es el segundo parrafo</p>
+    <p >  Este es el tercer parrafo</p><br>
+    <button onclick="cambiar()"> cambiar</button>
+    <script>
+        function cambiar(){
+            // utilizando quarySelectorAll para seleccionar todos los elementos de la clase
+            const parrafoResaltado = document.querySelectorAll('.resaltado')
+
+            /// haciendo algo en el elmento seleccionado, por ejemplo cambiar el tamaño
+        
+
+           let fsize = 18;
+           parrafoResaltado.forEach(parrafo =>{
+            parrafo.style.fontSize = `${fsize}px`;
+            fsize+=7;
+           })
+        }
+
+    </script>
+</body>
+
+</html>

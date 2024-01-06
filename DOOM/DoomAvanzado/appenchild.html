@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="parent"> 
+            <p> Hola a todos.</p>
+            <p class="message"> Hola, soy todo un camper</p>
+        </div>
+    </div>
+    <input type="text" id="new-message">
+    <button id="change-message" onclick="agregarElement()"> agregar Div <div></div></button>
+a
+    <button onclick="eliminarElement()"> Eliminar Parrafo</button>
+    <button onclick="reemplazarElement()"> Reemplazar Parrafo</button>
+    <button onclick="insertarElement()"> insertar de primero</button>
+    <script>
+        function agregarElement(){
+            const element = document.querySelector('.container');
+            const div = document.createElement('div');
+            div.innerHTML = "<p><span style='color:red'> div con Nuevo Elemento </p></span>"
+            // le agregamos una clase al div que hemos creado
+            div.classList.add('nuevaClase')
+            div.className = 'otraClaseNueva'
+            element.appendChild(div);
+        }
+
+        function eliminarElement(){
+            const element = document.querySelector('.parent')
+            const parrafo = document.querySelector('.message')
+            alert(parrafo.outerHTML)
+
+            element.removeChild(parrafo);
+        }
+
+        function reemplazarElement(){
+            const element = document.querySelector('.parent')
+            const parrafo = document.querySelector('.message')
+            alert(parrafo.outerHTML)
+            /// nuevo
+            const  pNuevo = document.createElement('p');
+            pNuevo.innerHTML="<span style='color:tomato'>Nuevo Parrafo</span><br><br>"
+            //reemplazar
+            element.replaceChild(pNuevo,parrafo);
+        }
+        function insertarElement(){
+            const element = document.querySelector('.container');
+            const pNuevo = document.createElement('p');
+            pNuevo.innerHTML = "<span style='color:blue'> Nuevo Parrafo</span>"
+            // insertar antes de .parent
+            // si le ponemos null hace lo mismo que el appendchild
+            element.insertBefore(pNuevo, element.firstChild);
+        }
+    </script>
+</body>
+</html>

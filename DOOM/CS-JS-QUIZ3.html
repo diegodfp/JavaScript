@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #header {
+
+            display: flex;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .tarjetaCrear {
+            padding: 10px;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 200px;
+            border: 4px gray groove;
+            
+        }
+        #header  h2{
+            margin: 0 50px;
+
+        }
+        
+
+        #espacioTarjetas {
+            background-color: grey;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tarjeta {
+            width: 400px;
+            border: 1px black solid;
+            margin: 20px;
+        }
+
+        .tarjeta p{
+            margin: 5px 5px;
+        }
+        .tarjeta .respuesta{
+            margin: 5px 5px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <h2> Gestion de Tarjetas</h2>
+            <button onclick="agregarItems()"> Agregar</button>
+            <button onclick="removeElement()"> Eliminar</button>
+        </div>
+        <div id="espacioTarjetas">
+            <template id="miTemplate">
+                <div class="tarjetaCrear">
+
+                    <h2>Crear Flashcard</h2>
+                    <label for="pregunta">Pregunta </label>
+                    <input type="text" id="pregunta" /> <br> <br>
+                    <label for="respuesta">Respuesta </label>
+                    <input type="text" id="respuesta" /> <br><br><br>
+                    <button onclick="crearFlashcard()"> Guardar</button>
+                    <button onclick="cerrar()"> Cerrar</button>
+
+                </div>
+            </template>
+
+        </div>
+        <template id="template2">
+            <div class="tarjeta" id="tarjeta" onclick="mostrarRespuesta()">
+                <button onclick='eliminar()'> eliminar</button>
+                <hr size='1px' color='red' />
+                <p><span id='preguntaF'></span></p>
+                <br>
+                <p class="respuesta"><span id='respuestaF'; style="display: none;"></span></p>
+            </div>
+        </template>
+    </div>
+
+
+
+
+
+    <script>
+        function mostrarRespuesta(){
+            let respuesta = document.getElementById('respuestaF')
+            respuesta.style.display = "block"
+        }
+        function agregarItems() {
+            const div = document.getElementById('espacioTarjetas')
+            const fragment = document.createDocumentFragment()
+            const template = document.getElementById("miTemplate").content
+            const clon = miTemplate.content.cloneNode(true);
+            document.body.appendChild(clon)
+
+        }
+
+        function crearFlashcard() {
+            const pregunta = document.getElementById('pregunta').value
+            const respuesta = document.getElementById('respuesta').value
+            const div = document.getElementById('container')
+            const fragment = document.createDocumentFragment()
+            const template = document.getElementById("template2").content
+            template.querySelector("span").textContent = pregunta;
+            template.getElementById('respuestaF').textContent = respuesta
+            const clon = template2.content.cloneNode(true);
+
+            document.body.appendChild(clon)
+
+
+
+        }
+        function removeElement() {
+            const div = document.querySelectorAll('.tarjeta');
+            div.forEach(parrafo => {
+                parrafo.remove();
+            })
+
+        }
+
+        function cerrar() {
+            const div = document.querySelector('.tarjetaCrear');
+            div.remove()
+        }
+        function eliminar() {
+            const div = document.getElementById('tarjeta');
+            div.remove()
+        }
+
+
+    </script>
+</body>
+
+</html>

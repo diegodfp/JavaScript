@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Ejemplo de Eventos</h1>
+
+    <p> <span id="span"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam velit placeat blanditiis, ipsa nobis exercitationem assumenda quia repudiandae, suscipit maxime eligendi impedit aut, minus error qui numquam accusamus repellendus consectetur. </span></p>
+
+    <script>
+        let contador = 0; 
+
+        function  cambiar (){
+            contador++;
+            console.log(contador); 
+            let span = document.getElementById("span");
+            span.textContent = " el numero de veces que ha pasado es  " + contador;
+        }
+
+        function incrementarContador(){
+            let span = document.getElementById("span");
+            span.textContent = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam velit placeat blanditiis, ipsa nobis exercitationem assumenda quia repudiandae, suscipit maxime eligendi impedit aut, minus error qui numquam accusamus repellendus consectetur."
+        }
+
+        document.getElementById('span').addEventListener('mouseover', incrementarContador);
+        document.getElementById('span').addEventListener('mouseout', cambiar);
+    </script>
+</body>
+</html>

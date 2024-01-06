@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ordenar Nombres</title>
+    <style>
+        #container{
+            height: auto;
+            width: 500px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 20px;
+        }
+        *{
+            color:  gray;
+
+        }
+        button{
+            background-color: rgb(70, 70, 228);
+            color: white;
+            padding: 10px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form name="ordenarNombre" >
+            <p> Ingrese nombres para ordenarlos en la caja inferior</p>
+            <label for="nombre">Nombre </label>
+            <input type="text" id="nombre" />
+            <button type="button" onclick="ordenar()"> Agregar y ordenar los nombres</button>
+            <br><br>
+            <h2> Nombres Ordenados</h2>
+            <hr size="1px" color="black" />
+            <textarea id="nOrdenados" rows="5" cols="30" readonly> Aqui apareceran los nombres Ordenados</textarea>
+            <button type="button" onclick="limpiar()">Limpiar</button>
+        </form>
+    </div>
+    
+    <script>
+        let nombresArray = [];
+    
+        function ordenar() {
+            let nombre = document.getElementById('nombre').value;
+            nombresArray.push(nombre);
+            nombresArray.sort(); 
+            mostrarNombres();
+        }
+    
+        function mostrarNombres() {
+            let ordenados = document.getElementById('nOrdenados');
+            ordenados.value = nombresArray.join('\n');
+            nombresArray.join('\n')
+
+        
+        }
+    
+        function limpiar() {
+            nombresArray = [];
+            document.getElementById('nOrdenados').value = '';
+        }
+    </script>
+    
+        
+    </script>
+</body>
+</html>  

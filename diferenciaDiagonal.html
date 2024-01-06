@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let array = [
+            [11, 2, 4],
+            [4, 5, 6],
+            [10, 8, -12]
+        ]
+        function diagonalDifference(matriz) {
+            let sumaDiagPrincipal = 0;
+            let sumaDiagSecundaria = 0;
+            for (let i = 0; i < matriz.length; i++) {
+                sumaDiagPrincipal += matriz[i][i];
+            }
+            for (let i = 0; i < matriz.length; i++) {
+                sumaDiagSecundaria += matriz[i][matriz.length - 1 - i];
+            }
+
+            let resultado = Math.abs(sumaDiagPrincipal-sumaDiagSecundaria)
+            console.log(resultado) 
+        }
+
+        diagonalDifference(array)
+
+        
+    </script>
+</body>
+
+</html>

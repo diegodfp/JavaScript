@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="miClase"> Elemento 1 </div>
+    <div class="miClase"> Elemento 2 </div>
+    <div class="miClase"> Elemento 3 </div>
+
+    
+    <script>
+        const elementos = document.getElementsByClassName('miClase')
+
+        // iterando los elementos
+        for (let i = 0; i<elementos.length; i++){
+            //haciendo algo con cada elemento, por ejemplo, cambiando su contendio
+            elementos[i].innerHTML = 'nuevo contenido para '+(i+1);
+        }
+    </script>
+</body>
+</html>

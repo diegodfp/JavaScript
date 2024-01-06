@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="parrafo1" class="resaltado"> Este es el primer parrafo</p>
+    <p id="parrafo2"> Este es el segundo parrafo</p><br>
+    <button onclick="cambiar()"> vambiar</button>
+    <script>
+        function cambiar(){
+            // utilizando quarySelector  para seleccionar el primer parrafo
+            const parrafoResaltado = document.querySelector('.resaltado')
+
+            /// haciendo algo en el elmento seleccionado, por ejemplo cambiar el tamaño
+            parrafoResaltado.style.fontSize = '18px';
+
+            /// tambien podemos seleccionar por id
+            const segundoParrafo = document.querySelector('#parrafo2')
+            segundoParrafo.innerHTML = 'texto modificado para el segundo parrafo'
+        }
+
+    </script>
+</body>
+
+</html>
