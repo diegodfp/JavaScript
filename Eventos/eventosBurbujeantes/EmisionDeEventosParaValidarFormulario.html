@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Bubbling</title>
+</head>
+<body>
+
+    <form id="mainForm">
+        <div class="section" id="section1">
+            <label for="field1">Campo 1:</label>
+            <input type="text" id="field1">
+        </div>
+
+        <div class="section" id="section2">
+            <label for="field2">Campo 2:</label>
+            <input type="text" id="field2">
+        </div>
+
+        <button type="button" id="submitButton">Enviar</button>
+    </form>
+
+    <script>
+        const mainForm = document.getElementById("mainForm");
+
+        // Agregar un evento a nivel del formulario para manejar validaciones globales
+        mainForm.addEventListener("user:validate", event => {
+            const field1Value = document.getElementById("field1").value;
+            const field2Value = document.getElementById("field2").value;
+
+            // Simulando algunas validaciones globales
+            if (field1Value === "" || field2Value === "") {
+                console.log("¡Error! Todos los campos deben estar completos.");
+            } else {
+                console.log("¡Formulario validado con éxito!");
+            }
+        });
+
+        // Agregar eventos a los campos de entrada para validar localmente
+        document.getElementById("field1").addEventListener("blur", () => {
+            // Simular validaciones locales para el campo 1
+            console.log("Validando Campo 1...");
+        });
+
+        document.getElementById("field2").addEventListener("blur", () => {
+            // Simular validaciones locales para el campo 2
+            console.log("Validando Campo 2...");
+        });
+
+        // Agregar evento al botón para desencadenar la validación del formulario
+        document.getElementById("submitButton").addEventListener("click", () => {
+            // Despachar evento de validación desde el formulario
+            mainForm.dispatchEvent(new CustomEvent("user:validate", {
+                bubbles: true,
+            }));
+        });
+    </script>
+
+</body>
+</html>
