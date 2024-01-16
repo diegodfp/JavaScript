@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .grid-container {
+            
+            background-color: #2196f3;
+            margin: 0 auto;
+            padding: 30px;
+            display: grid;
+            width: 400px;
+            height: 40vh;
+            gap: 0px;
+            grid-template-areas: "output output output output"
+                "mas menos por divi"
+                "siete ocho nueve igual"
+                "cuatro cinco seis igual"
+                "uno dos tres igual"
+                "cero punto ce igual"
+            ;
+            
+        }
+
+        .grid-item {
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            font-size: 30px;
+            text-align: center;
+            
+        }
+
+        .item1 {
+            grid-area: uno;
+        }
+
+        .item2 {
+            grid-area: dos;
+        }
+
+        .item3 {
+            grid-area: tres;
+        }
+
+        .item4 {
+            grid-area: cuatro;
+        }
+
+        .item5 {
+            grid-area: cinco;
+        }
+
+        .item6 {
+            grid-area: seis;
+        }
+
+        .item7 {
+            grid-area: siete;
+        }
+
+        .item8 {
+            grid-area: ocho;
+        }
+
+        .item9 {
+            grid-area: nueve;
+        }
+
+        .itemoutput {
+            grid-area: output;
+            background-color: black;
+        }
+
+        .itemmas {
+            grid-area: mas;
+            background-color: rgb(172, 172, 172);
+        }
+
+        .itemmenos {
+            grid-area: menos;
+            background-color: rgb(172, 172, 172);
+        }
+
+        .itempor {
+            grid-area: por;
+            background-color: rgb(172, 172, 172);
+        }
+
+        .itemdivi {
+            grid-area: divi;
+            background-color: rgb(172, 172, 172);
+        }
+
+        .itemigual {
+            grid-area: igual;
+            background-color: tomato;
+        }
+
+        .item0 {
+            grid-area: cero;
+        }
+
+        .itemce {
+            grid-area: ce;
+        }
+
+        .itempunto {
+            grid-area: punto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item itemoutput"> <span id="output"></span></div>
+        <div class="grid-item item1"> 1</div>
+        <div class="grid-item item2">2</div>
+        <div class="grid-item item3"> 3 </div>
+        <div class="grid-item item4">4</div>
+        <div class="grid-item item5"> 5 </div>
+        <div class="grid-item item6">6</div>
+        <div class="grid-item item7"> 7</div>
+        <div class="grid-item item8">8</div>
+        <div class="grid-item item9"> 9</div>
+        <div class="grid-item itempor">x</div>
+        <div class="grid-item itemmas"> + </div>
+        <div class="grid-item itemmenos">-</div>
+        <div class="grid-item itemdivi"> /</div>
+        <div class="grid-item itemigual"> = </div>
+        <div class="grid-item item0"> 0</div>
+        <div class="grid-item itemce"> ce </div>
+        <div class="grid-item itempunto"> . </div>
+    </div>
+
+    <script>
+        
+        document.querySelector(".grid-container").addEventListener("click",(event)=> {
+            if (event.target.classList.contains(grid-item)){
+                funcionCalcular()
+            }
+        })
+
+    </script>
+</body>
+
+
+</html>
