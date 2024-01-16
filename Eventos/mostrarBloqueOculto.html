@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .oculto {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease; /* Transición suave de 0.5 segundos */
+        }
+
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="oculto" id="ficha1">
+        Hola, soy el bloque 1
+    </div>
+    <div class="oculto" id="ficha2">
+        Hola, soy el bloque 2
+    </div>
+    <div class="oculto" id="ficha3">
+        Hola, soy el bloque 3
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+            
+            const numeroTecla = event.key;
+
+            document.querySelectorAll('.oculto').forEach(function(bloque) {
+                bloque.classList.remove('visible');
+            });
+
+            const bloqueMostrar = document.getElementById('ficha' + numeroTecla);
+            if (bloqueMostrar) {
+                bloqueMostrar.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>

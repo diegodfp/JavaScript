@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            margin: 0 auto;
+        }
+        #contenedor{
+            width: 500px;
+            border: 1px salmon solid    ;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #aumen{
+            border-radius: 15%;
+            background-color:cornflowerblue;
+            
+        }
+        #dis{
+            border-radius: 15%;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="contenedor">
+            <label for="cen">  Grados Centigrados: <input type="text"  id="cen"></label><br>
+            <label for="far">  Grados Farenheit: <input type="text"  id="far"></label> <br>
+            <button id="calcularBtn">calcular</button> 
+        </div>
+    </div>
+
+    <script>
+        const cenInput = document.getElementById('cen');
+        const farInput = document.getElementById('far');
+        const calcularBtn = document.getElementById('calcularBtn');
+
+        function convertirCenToFah(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+
+        function convertirFahToCen(fahrenheit) {
+            return (fahrenheit - 32) * 5 / 9;
+        }
+
+        function actualizarFondo(input) {
+            input.style.backgroundColor = '#71ff74';
+            const otraInput = input === cenInput ? farInput : cenInput;
+            otraInput.style.backgroundColor = '#9dd2fd';
+        }
+
+        calcularBtn.addEventListener('click', function () {
+            const celsius = parseFloat(cenInput.value);
+            const fahrenheit = parseFloat(farInput.value);
+
+            if (!isNaN(celsius)) {
+                farInput.value = convertirCenToFah(celsius).toFixed(2);
+                actualizarFondo(farInput);
+            } else if (!isNaN(fahrenheit)) {
+                cenInput.value = convertirFahToCen(fahrenheit).toFixed(2);
+                actualizarFondo(cenInput);
+            }
+        });
+
+        cenInput.addEventListener('focus', function () {
+            cenInput.style.backgroundColor = '#feff64';
+            farInput.style.backgroundColor = '#9dd2fd';
+        });
+
+        farInput.addEventListener('focus', function () {
+            farInput.style.backgroundColor = '#feff64';
+            cenInput.style.backgroundColor = '#9dd2fd';
+        });
+
+        cenInput.addEventListener('input', function () {
+            const celsius = parseFloat(cenInput.value);
+            if (!isNaN(celsius)) {
+                farInput.value = convertirCenToFah(celsius).toFixed(2);
+                actualizarFondo(farInput);
+            } else {
+                farInput.value = '';
+                farInput.style.backgroundColor = '';
+            }
+        });
+
+        farInput.addEventListener('input', function () {
+            const fahrenheit = parseFloat(farInput.value);
+            if (!isNaN(fahrenheit)) {
+                cenInput.value = convertirFahToCen(fahrenheit).toFixed(2);
+                actualizarFondo(cenInput);
+            } else {
+                cenInput.value = '';
+                cenInput.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>

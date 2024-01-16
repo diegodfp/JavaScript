@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label>No se aceptan dígitos</label>
+        <input type="text" id="letras">
+    </form>
+    <script>
+        const inputLetras = document.getElementById("letras");
+
+        inputLetras.addEventListener("keydown", function(event) {
+            const keyCode = event.keyCode;
+
+            // Verificar si la tecla presionada es un dígito (0-9)
+            if (keyCode >= 48 && keyCode <= 57 || (keyCode >= 96 && keyCode <= 105)) {
+                // para evitar la entrada de la tecla presionada
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
