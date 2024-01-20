@@ -11,17 +11,24 @@
     <script>
       
 
-        const products = [
-        {"id":"1"},
-        {"id":"1"},
-        {"id":"2"}
-        ];
+        function groupBy(array, property) {
+            return array.reduce(function (acc, obj) {
+                let key = obj[property];
+                if (!acc[key]) {
+                    acc[key] = [];
+                }
+                acc[key].push(obj);
+                return acc;
+            }, {});
+        }
+        
+        const tuArray = [{"id":"1"},{"id":"1"},{"id":"2"}];
+        const resultado = groupBy(tuArray, 'id');
+        
+        console.log(resultado)
 
-        const agruparPorTipo = Object.groupBy(products, (product) => product.type);
-        console.log(agruparPorTipo);
-
-
-        agruparPorTipo 
+        
+         
     </script>
 </body>
 
