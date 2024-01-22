@@ -5,7 +5,7 @@ import { get } from "./../models/get.js";
 
 
 export function controlador(formu, event, entidad, elemformu) {
-  const URL = "http://localhost:4000/";
+  const URL = "http://localhost:3000/";
   let url = "";
   
   const datos = formu !== null ? Object.fromEntries(new FormData(formu)) : null;
