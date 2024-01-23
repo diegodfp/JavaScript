@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <div class="form-container" id="form-container">
+          <form action="#" id="signup-form">
+            <h1>Inicia sesion</h1>
+            <label for="tipo">Tipo de Usuario</label>
+            <select name="lenguajes" id="tipo">
+              <option value="2"> Funcionario</option>
+              <option value="3"> Cliente </option>
+            </select>
+            <label for="id" id="labelCedula"> Usuario <input type="text" placeholder="Su cedula" name="id" id="id"/> </label>
+            <label for="constraseña" id="labelContraseña"> Contraseña <input type="tipo" placeholder="contraseña" name="contraseña" id="contraseña"/> </label>
+            <button type="button" id="signinButton">Ingresar</button>
+          </form>
+        </div>
+        
+
+        <div id="templateFuncionario" style="display: none;">
+            <form action="#" id="buscarCliente-form">
+                <h1>Busca un cliente</h1>
+                <label for="idCliente" id="labelidCliente"> Usuario <input type="text" placeholder="cedula Cliente" name="idCliente" id="idCliente"/> </label>
+                <button type="button" id="buscarClienteButton">Buscar</button>
+              </form>
+              <div id="contenedorBuscarCliente">
+               <h1> <span id="nombreCliente"></span>  </h1> 
+               <h1> <span id="cedulaCliente"></span> </h1>
+              </div>
+              <div id="contenedorLista">
+                <ol id="listaCompras">
+
+                </ol>
+                <p>  <span id="numerodeCompras"></span>   <span id="cuantasFaltan"></span> </p>
+                <span id="cuantasFaltan"></span>
+                <button id="botonregistrarCompra" onclick="registrarCompra()" style="display: none;">Registrar Compra</button>
+                <button id="botonregistrarBono" onclick="registrarBono()" style="display: none;">Registrar Bono</button>
+              </div>
+
+        </div>
+        <script src="js/crud.js"></script>
+</body>
+</html>

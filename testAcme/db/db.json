@@ -1,0 +1,146 @@
+{
+    "tipousuarios": [
+        {
+            "id": 1,
+            "tipo": "administrador"
+        },
+        {
+            "id": 2,
+            "tipo": "funcionario"
+        },
+        {
+            "id": 3,
+            "tipo": "cliente"
+        }
+    ],
+    "usuarios": [
+        {
+            "id": "integer; 0 < d <= 2.000.0000; (cedula cliente)",
+            "pass": "string; len(pass) > 6",
+            "nombre": "string; len(nombre) > 3",
+            "tipoId": "[1, 2, 3]"
+        },
+        {
+            "id": "1098792956",
+            "pass": "123456",
+            "nombre": "Diego Perez",
+            "tipoId": "2"
+        },
+        {
+            "id": "63351361",
+            "pass": "123456",
+            "nombre": "liliana",
+            "tipoId": "3"
+        }
+        ,
+        {
+            "id": "1005324820",
+            "pass": "123456",
+            "nombre": "Anyi",
+            "tipoId": "3"
+        }
+    ],
+    "registros": [
+        {
+            "id": "1",
+            "usuarioId": "63351361",
+            "compras": [
+                {
+                    "fecha": "date; yyyy-mm-dd",
+                    "perfumeId": "2"
+                },
+                {
+                    "fecha": "date; yyyy-mm-dd",
+                    "perfumeId": "3"
+                },
+                {
+                    "fecha": "date; yyyy-mm-dd",
+                    "perfumeId": "4"
+                },
+                {
+                    "fecha": "date; yyyy-mm-dd",
+                    "perfumeId": "2"
+                }
+            ],
+            "comentarios": "La longitud de las compras: 0 <= len(compras) < 10"
+        },
+        {
+            "id": "2",
+            "usuarioId": "1005324820",
+            "compras": [
+                {
+                    "fecha": " 2024-01-21",
+                    "perfumeId": "2"
+                },
+                {
+                    "fecha": " 2023-01-1",
+                    "perfumeId": "3"
+                }
+            ],
+            "comentarios": "La longitud de las compras: 0 <= len(compras) < 10"
+        }
+    ],
+    "bonos": [
+        {
+            "id": "integer; id > 0",
+            "usuarioId": "integer; 0 < d <= 2.000.0000; (cedula cliente)",
+            "historial": [
+                "date; yyyy-mm-dd",
+                "date; yyyy-mm-dd"
+            ],
+            "comentarios": "el historial es la fecha de cada vez que el usuario se ha ganado un bono"
+        }
+    ],
+    "perfumes": [
+        {
+            "id": "1",
+            "name": "Perfume A",
+            "marca": "Brand X"
+        },
+        {
+            "id": "2",
+            "name": "Perfume B",
+            "marca": "Brand Y"
+        },
+        {
+            "id": "3",
+            "name": "Perfume C",
+            "marca": "Brand Z"
+        },
+        {
+            "id": "4",
+            "name": "Perfume D",
+            "marca": "Brand X"
+        },
+        {
+            "id": "5",
+            "name": "Perfume E",
+            "marca": "Brand Y"
+        },
+        {
+            "id": "6",
+            "name": "Perfume F",
+            "marca": "Brand Z"
+        },
+        {
+            "id": "7",
+            "name": "Perfume G",
+            "marca": "Brand X"
+        },
+        {
+            "id": "8",
+            "name": "Perfume H",
+            "marca": "Brand Y"
+        },
+        {
+            "id": "9",
+            "name": "Perfume I",
+            "marca": "Brand Z"
+        },
+        {
+            "id": "10",
+            "name": "Perfume J",
+            "marca": "Brand X"
+        }
+    ]
+}
